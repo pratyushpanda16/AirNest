@@ -27,10 +27,10 @@ public class HotelEntity {
 
     private String city;
 
-    @Column(columnDefinition = "TEXT[]")
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.ARRAY)
     private String[] photos;
 
-    @Column(columnDefinition = "TEXT[]")
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.ARRAY)
     private String[] amenities;
 
     @CreationTimestamp
