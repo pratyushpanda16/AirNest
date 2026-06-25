@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Antigravity AI Logs & Guides ###
+chat_history.md
+interview_guide.md
+learning_guide_part1.md
+learning_guide_part2.md
+project_assessment.md
