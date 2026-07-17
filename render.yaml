@@ -16,12 +16,18 @@ services:
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/v1/actuator/health
     envVars:
-      - key: DB_URL
+      - key: DB_HOST
         fromDatabase:
           name: airnest-db
-          property: connectionURI
-        # Note: Render gives postgres:// URI. Spring Boot 3.x auto-converts this.
-        # If issues arise, manually set as: jdbc:postgresql://<host>:5432/airnest
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: airnest-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: airnest-db
+          property: database
       - key: DB_USERNAME
         fromDatabase:
           name: airnest-db
@@ -38,3 +44,4 @@ services:
         sync: false  # Set manually in Render dashboard
       - key: STRIPE_WEBHOOK_SECRET
         sync: false  # Set manually in Render dashboard
+
