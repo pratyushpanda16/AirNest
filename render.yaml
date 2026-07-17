@@ -1,0 +1,40 @@
+# Render Blueprint — Infrastructure as Code
+# Docs: https://docs.render.com/infrastructure-as-code
+
+databases:
+  - name: airnest-db
+    plan: free
+    databaseName: airnest
+    user: airnest_user
+
+services:
+  - type: web
+    name: airnest-api
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/v1/actuator/health
+    envVars:
+      - key: DB_URL
+        fromDatabase:
+          name: airnest-db
+          property: connectionURI
+        # Note: Render gives postgres:// URI. Spring Boot 3.x auto-converts this.
+        # If issues arise, manually set as: jdbc:postgresql://<host>:5432/airnest
+      - key: DB_USERNAME
+        fromDatabase:
+          name: airnest-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: airnest-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://your-frontend-url.com
+      - key: STRIPE_SECRET_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false  # Set manually in Render dashboard
