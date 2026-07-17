@@ -17,6 +17,15 @@
   <a href="#-tech-stack"><img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/></a>
 </p>
 
+<p align="center">
+  <a href="https://airnest-api-3bl7.onrender.com/api/v1/swagger-ui/index.html"><img src="https://img.shields.io/badge/🔗_Live_API_Docs-Swagger_UI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="Swagger UI"/></a>
+  <a href="https://airnest-api-3bl7.onrender.com/api/v1/actuator/health"><img src="https://img.shields.io/badge/❤️_Health_Check-Live-00C853?style=for-the-badge" alt="Health Check"/></a>
+</p>
+
+> **🌐 Live API Base URL:** [`https://airnest-api-3bl7.onrender.com/api/v1`](https://airnest-api-3bl7.onrender.com/api/v1/swagger-ui/index.html)
+>
+> _⚡ First request may take ~30s due to free tier cold start._
+
 ---
 
 ## 📋 Table of Contents
